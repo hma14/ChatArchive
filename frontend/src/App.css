@@ -1,0 +1,87 @@
+.body,
+html,
+#root {
+  margin: 0;
+  height: 100%;
+}
+
+.layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  padding: 15px;
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  margin-bottom: 14px;
+  background: var(--input-bg);
+  color: var(--text);
+}
+
+/* Conversation Item */
+.conversation-item {
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+.conversation-item.active {
+  background: var(--hover);
+}
+.conversation-item:hover {
+  background: var(--hover);
+}
+
+/* Chat Viewer */
+.chat-container {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: var(--bg);
+}
+
+/* THEME */
+:root {
+  --bg: #ffffff;
+  --text: #222;
+  --sidebar-bg: #f5f5f5;
+  --sidebar-text: #000;
+  --border: #ddd;
+  --hover: #e8e8e8;
+  --input-bg: #fff;
+}
+
+.dark {
+  --bg: #1e1e1e;
+  --text: #eee;
+  --sidebar-bg: #2a2a2a;
+  --sidebar-text: #ccc;
+  --border: #444;
+  --hover: #3a3a3a;
+  --input-bg: #333;
+}
+
+.theme-btn {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  padding: 10px 18px;
+  border: none;
+  background: var(--hover);
+  color: var(--text);
+  border-radius: 12px;
+}

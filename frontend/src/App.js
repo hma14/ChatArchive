@@ -5,7 +5,7 @@ import ThemeToggle from "./ThemeToggle";
 import "./App.css";
 
 const BASE_URL = "http://chat.lottotry.com:5000";
-//BASE_URL = "http://127.0.0.1:5000"
+//const BASE_URL = "http://127.0.0.1:5000"
 function App() {
   const [conversations, setConversations] = useState([]);
   const [activeId, setActiveId] = useState(null);

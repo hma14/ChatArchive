@@ -4,6 +4,8 @@ import ChatViewer from "./ChatViewer";
 import ThemeToggle from "./ThemeToggle";
 import "./App.css";
 
+const BASE_URL = "http://chat.lottotry.com:5000";
+//BASE_URL = "http://127.0.0.1:5000"
 function App() {
   const [conversations, setConversations] = useState([]);
   const [activeId, setActiveId] = useState(null);
@@ -11,7 +13,7 @@ function App() {
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/conversations")
+    fetch(`${BASE_URL}/conversations`)
       .then((res) => res.json())
       .then((data) => {
         setConversations(data);

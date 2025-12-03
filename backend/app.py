@@ -10,7 +10,8 @@ CONV_FILE = os.path.join(ROOT, "conversations.json")
 ATTACH_DIR = os.path.join(ROOT, "attachments")  # optional folder for attachments
 
 app = Flask(__name__, static_folder=None)
-CORS(app, origins=["http://localhost:3000"])
+#CORS(app, origins=["http://localhost:3000"])
+CORS(app, origins=["*"])
 
 # ---------- Load conversations safely ----------
 def load_conversations():
@@ -348,5 +349,5 @@ def get_attachment(filename):
     abort(404)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
-    #app.run(host='chat.lottotry.com', port=5000, debug=False)
+    app.run(host="0.0.0.0", port=5010, debug=True)
+    #app.run(host='chat.lottotry.com', port=5010, debug=False)

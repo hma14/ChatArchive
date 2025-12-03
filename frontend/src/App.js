@@ -4,8 +4,8 @@ import ChatViewer from "./ChatViewer";
 import ThemeToggle from "./ThemeToggle";
 import "./App.css";
 
-//export const BASE_URL = "http://chat.lottotry.com:5000";
-export const BASE_URL = "http://127.0.0.1:5000";
+//export const BASE_URL = "http://chat.lottotry.com:5010";
+export const BASE_URL = "http://127.0.0.1:5010";
 function App() {
   const [conversations, setConversations] = useState([]);
   const [activeId, setActiveId] = useState(null);

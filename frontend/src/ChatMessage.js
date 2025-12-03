@@ -1,65 +1,30 @@
-import ChatGPTIcon from "./assets/chatgpt.svg"; // or .svg
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import React from "react";
+import { marked } from "marked";
+import "./ChatMessage.css"; // make sure this path is correct
+import chatgptIcon from "./assets/chatgpt.svg";
+import userIcon from "./assets/lottotry-favicon.ico";
 
 export default function ChatMessage({ role, content }) {
-  const isAssistant = role === "assistant";
-  const isUser = role === "user";
-
+  // Convert markdown → HTML
+  const html = marked.parse(content || "");
+  const avatar = role === "assistant" ? chatgptIcon : userIcon;
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: isAssistant ? "row" : "row-reverse",
-        alignItems: "flex-start",
-        marginBottom: "20px",
-        width: "100%",
-      }}
-    >
-      {/* ==== Avatar ==== */}
-      {isAssistant ? (
-        <img
-          src={ChatGPTIcon}
-          alt="assistant"
-          style={{
-            width: 40,
-            height: 40,
-            borderRadius: "50%",
-            marginRight: 10,
-          }}
-        />
-      ) : (
-        <div
-          style={{
-            width: 40,
-            height: 40,
-            borderRadius: "50%",
-            backgroundColor: "#007bff",
-            color: "white",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            fontWeight: "bold",
-            marginLeft: 10,
-          }}
-        >
-          U
-        </div>
-      )}
-
-      {/* ==== Message Bubble ==== */}
+    <div className={`chat-message ${role}`}>
+      {/* Avatar */}
       <div
+        className="avatar"
         style={{
-          background: isAssistant ? "#f7f7f8" : "#d0e7ff",
-          padding: "12px 16px",
-          borderRadius: 10,
-          maxWidth: "70%",
-          whiteSpace: "pre-wrap",
+          backgroundImage: `url(${avatar})`,
         }}
-      >
-        {/* {content} */}
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
-      </div>
+        /* style={{
+          display: "flex",
+          flexDirection: "row",
+          backgroundImage: role === "assistant" ? chatgptIcon : userIcon,
+        }} */
+      />
+
+      {/* Message bubble */}
+      <div className="bubble" dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   );
 }

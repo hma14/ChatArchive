@@ -14,22 +14,45 @@ html,
 
 /* SIDEBAR */
 .sidebar {
-  width: 280px;
-  background: var(--sidebar-bg);
-  color: var(--sidebar-text);
-  padding: 15px;
-  border-right: 1px solid var(--border);
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background: #f7f7f8;
+  height: 100vh;
+  border-right: 1px solid #ddd;
+
+  /* Make width flexible */
+  width: clamp(180px, 20vw, 300px);
+
+  /* Allow smooth resizing visually */
+  transition: width 0.2s ease;
 }
 
-.search-bar {
+.sidebar-search {
+  height: 200px; /* ← FIXED HEIGHT */
+  min-height: 100px;
+  max-height: 200px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 12px;
+  box-sizing: border-box;
+
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+
+  position: sticky; /* makes top fixed on scroll */
+  top: 0;
+  z-index: 10;
+}
+
+.sidebar-search input {
   width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  margin-bottom: 14px;
-  background: var(--input-bg);
-  color: var(--text);
+  height: 100%; /* matches 48px height */
+  font-size: 14px;
+  border: none;
+  outline: none;
+  background: transparent;
 }
 
 /* Conversation Item */
@@ -47,12 +70,14 @@ html,
 }
 
 /* Chat Viewer */
+/*
 .chat-container {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
   background: var(--bg);
 }
+  */
 
 /* THEME */
 :root {
@@ -84,33 +109,4 @@ html,
   background: var(--hover);
   color: var(--text);
   border-radius: 12px;
-}
-
-.chat-message h1,
-.chat-message h2,
-.chat-message h3 {
-  font-weight: 600;
-  margin: 12px 0;
-}
-
-.chat-message p {
-  margin: 8px 0;
-}
-
-.chat-message strong {
-  font-weight: 600;
-}
-
-.chat-message code {
-  background: #f4f4f4;
-  padding: 2px 6px;
-  border-radius: 4px;
-}
-
-.chat-message pre {
-  background: #1e1e1e;
-  padding: 12px;
-  border-radius: 6px;
-  overflow-x: auto;
-  color: white;
 }

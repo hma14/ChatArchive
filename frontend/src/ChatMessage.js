@@ -1,4 +1,6 @@
 import ChatGPTIcon from "./assets/chatgpt.svg"; // or .svg
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export default function ChatMessage({ role, content }) {
   const isAssistant = role === "assistant";
@@ -55,7 +57,8 @@ export default function ChatMessage({ role, content }) {
           whiteSpace: "pre-wrap",
         }}
       >
-        {content}
+        {/* {content} */}
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import ChatMessage from "./ChatMessage";
 import { scrollToBottom } from "./utils/scroll";
+import { BASE_URL } from "./App";
 
 export default function ChatViewer({ activeId }) {
   const [messages, setMessages] = useState([]);
@@ -9,7 +10,7 @@ export default function ChatViewer({ activeId }) {
   useEffect(() => {
     if (!activeId) return;
 
-    fetch(`http://127.0.0.1:5000/conversation/${activeId}`)
+    fetch(`${BASE_URL}/conversation/${activeId}`)
       .then((res) => res.json())
       .then((data) => {
         setMessages(data);

@@ -115,3 +115,11 @@ html,
   color: var(--text);
   border-radius: 12px;
 }
+
+.search-bar {
+  padding: 14px 6px; /* increase vertical height */
+  font-size: 1rem;
+  margin-bottom: 10px;
+  margin-right: 2px;
+  border-radius: 8px;
+}

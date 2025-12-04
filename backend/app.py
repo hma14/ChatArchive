@@ -349,5 +349,5 @@ def get_attachment(filename):
     abort(404)
 
 if __name__ == "__main__":
-    #app.run(host="0.0.0.0", port=5010, debug=True)
-    app.run(host='ep.lottotry.com', port=5010, debug=False)
+    app.run(host="0.0.0.0", port=5010, debug=True)
+    #app.run(host='ep.lottotry.com', port=5010, debug=False)

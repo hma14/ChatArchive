@@ -17,14 +17,19 @@ html,
   display: flex;
   flex-direction: column;
   background: #f7f7f8;
-  height: 100vh;
   border-right: 1px solid #ddd;
 
   /* Make width flexible */
-  width: clamp(180px, 20vw, 300px);
+  width: clamp(240px, 20vw, 360px);
 
   /* Allow smooth resizing visually */
   transition: width 0.2s ease;
+
+  overflow-y: auto; /* enables scroll */
+  overflow-x: hidden; /* prevents horizontal scroll */
+  height: 100vh; /* ensure it fills full height */
+
+  flex-shrink: 0;
 }
 
 .sidebar-search {
